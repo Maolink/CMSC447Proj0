@@ -1,7 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from .views import *
 
 # app's URL Config
 urlpatterns = [
-    path('home/', views.home_page)
+    path('home/', views.home_page),
+    path('pathway', ReactView.as_view(), name="academicPathwayFrontEnd")
 ]
