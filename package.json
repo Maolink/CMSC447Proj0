@@ -1,0 +1,20 @@
+{
+  "name": "cmsc447proj0",
+  "version": "1.0.0",
+  "description": "Project",
+  "homepage": "https://github.com/Maolink/CMSC447Proj0#readme",
+  "bugs": {
+    "url": "https://github.com/Maolink/CMSC447Proj0/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maolink/CMSC447Proj0.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

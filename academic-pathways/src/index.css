@@ -17,8 +17,9 @@ code {
 }
 
 .sx-react-calendar-wrapper {
-  width: 1000px;
+  margin-left: 535px;
+  width: 525px;
   max-width: 80vw;
-  height: 800px;
-  max-height: 90vh;
+  height: 1200px;
+  max-height: 85vh;
 }

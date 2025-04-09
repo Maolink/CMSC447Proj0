@@ -5,5 +5,5 @@ from .views import *
 # app's URL Config
 urlpatterns = [
     path('home/', views.home_page),
-    path('pathway', ReactView.as_view(), name="academicPathwayFrontEnd")
+    path('', ReactView.as_view(), name="academicPathwayFrontEnd")
 ]

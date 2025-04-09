@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import render
-from rest_framework.views import APIView
+from rest_framework import generics
 from . models import *
 from rest_framework.response import Response
 from . serializer import *
@@ -10,27 +8,28 @@ from . serializer import *
 # views take requests and return responses. request handler. 
 # A view is usually something the user sees, but the template is actually that.
 
-class ReactView(APIView):
-    serializer_instance = ReactSerializer
+class ReactView(generics.ListCreateAPIView):
+    queryset = CollegeCourse.objects.all()
+    serializer_class = CollegeCourseSerializer
     
     def get(self, request):
         # api get response.
         objects = [{
-            "name": "detail.name",
-            "course_id": "detail.course_id",
-            "description": "detail.description",
-            "enrollment_requirements": "detail.enrollment_requirements",
-            "meeting_times": "detail.meeting_times",
-            "room": "detail.room",
-            "prerequisites": "detail.prerequisites"
+            "name": objects.name,
+            "course_id": objects.course_id,
+            "description": objects.description,
+            "enrollment_requirements": objects.enrollment_requirements,
+            "meeting_times": objects.meeting_times,
+            "room": objects.room,
+            "prerequisites": objects.prerequisites
         }
-        for object in CollegeCourse.objects.all()]
+        for objects in CollegeCourse.objects.all()]
         return Response(objects)
 
 
     def post(self, request):
-        serializer = ReactSerializer(data = request.data)
-        if serializer.is_valid(raise_execption=True):
+        serializer = self.serializer_class(data = request.data)
+        if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
 
