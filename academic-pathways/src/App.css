@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  align-items: flex-start;
 }
 
 .App-logo {
@@ -18,14 +18,70 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.tableContainer {
+  position:relative;
+  border-collapse: collapse; 
+  float: left;
+  /* display: inline; */
+  width: 500px;
+  height: 500px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  /* box-sizing: border-box; */
+  background-color: #f9f9f9;
+}
+
+.tableContainer thead th {
+  border: 1px solid #7b7b7b;
+  /* border-collapse: collapse; */
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+ .tableContainer tbody td { 
+   border: 1px solid #7b7b7b; 
+   border-radius: 5px;
+}
+
+.addClassButton {
+  background-color: #7b7b7b;  
+  border: 1px solid black;
+  color: black;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.addClassButton:active {
+  background-color: #525252; 
+}
+
+.advisorRec {
+  padding: 15px 15px 15px 15px;
+  text-align: left;
+  float: right;
+  margin-top: -540px;
+  margin-bottom: 200px;
+  margin-left: 1100px;
+  margin-right: 10px;
+  overflow-wrap: break-word;
+  border:1px solid #7b7b7b;
+  border-radius: 5px;
 }
 
 @keyframes App-logo-spin {
