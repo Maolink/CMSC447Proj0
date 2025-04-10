@@ -58,7 +58,7 @@
    border-radius: 5px;
 }
 
-.addClassButton {
+.buttonClass {
   background-color: #7b7b7b;  
   border: 1px solid black;
   color: black;
@@ -72,7 +72,7 @@
   border-radius: 5px;
 }
 
-.addClassButton:active {
+.buttonClass:active {
   background-color: #525252; 
 }
 
