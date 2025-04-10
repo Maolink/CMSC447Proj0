@@ -178,7 +178,6 @@ function App() {
       )}
     </div>
     <div dangerouslySetInnerHTML={{__html: advisorRecs}} className='advisorRec'/>
-      
     </>
   );
   
