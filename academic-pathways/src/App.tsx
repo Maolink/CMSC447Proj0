@@ -22,6 +22,9 @@ function App() {
 
   return (
       <>
+      <div className="topBar">
+        <h1 style={{ margin: 0 }}>My Academic Pathway</h1>
+      </div>
       <div className='tableContainer'>
         <table>
           <thead>
