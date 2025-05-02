@@ -4,9 +4,5 @@ from .models import *
 class CollegeCourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = CollegeCourse
-        fields = ['name', 'course_id', 'description', 'enrollment_requirements', 'meeting_times', 'room', 'prerequisites']
-
-class planClassSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CollegeCourse
-        fields = ['name', 'course_id']   
+        fields = '__all__'
+        # fields = ['name', 'course_id', 'description', 'enrollment_requirements', 'meeting_times', 'room', 'prerequisites']

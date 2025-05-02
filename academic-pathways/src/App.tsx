@@ -1,11 +1,20 @@
 import './App.css';
 import React from 'react';
+import CourseLister from './components/courseLister';
 import { ScheduleXCalendar, useCalendarApp } from '@schedule-x/react';
 import { createViewWeek, createViewMonthGrid } from '@schedule-x/calendar';
 import '@schedule-x/theme-default/dist/calendar.css';
 import { createEventsServicePlugin } from '@schedule-x/events-service';
 
 const eventServicePlugin = createEventsServicePlugin();
+
+const courseColumns: string[] = [
+  "course_id",
+  "name",
+  "description",
+  "meeting_times",
+  "room",
+];
 
 function App() {
   const calendar = useCalendarApp({
@@ -30,7 +39,13 @@ function App() {
       <div className="topBar">
         <h1 style={{ margin: 0 }}>My Academic Pathway</h1>
       </div>
-      <div className='tableContainer'>
+      <div className="tableContainer">
+        <h1>courses:</h1>
+        <CourseLister
+          columns={courseColumns}
+        />
+      </div>
+      {/* <div className='tableContainer'>
         <table>
           <thead>
             <tr>
@@ -164,7 +179,7 @@ function App() {
             </tr>
           </tbody>
         </table>
-        </div>
+        </div> */}
       <div
       style={{
         border: '#4f4f4f',
