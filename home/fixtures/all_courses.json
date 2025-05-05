@@ -5,11 +5,13 @@
       "fields": {
         "name": "CMSC 201 - Computer Science I",
         "course_id": "CMSC 201",
+        "major":"Computer Science",
         "description": "An introduction to computer science through problem solving and computer programming. Programming techniques covered by this course include modularity, abstraction, top-down design, specifications documentation, debugging and testing. The core material for this course includes control structures, functions, lists, strings, abstract data types, file I/O, and recursion.",
         "enrollment_requirements": "MATH 150, MATH 151, MATH 152, or MATH 155 with a grade of 'C' or better, or a score of 5 on the Math Placement Test.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": []
+        "prerequisites": [],
+        "credits": 4
       }
     },
     {
@@ -18,11 +20,13 @@
       "fields": {
         "name": "CMSC 202 - Computer Science II",
         "course_id": "CMSC 202",
+        "major":"Computer Science",
         "description": "This course continues the student’s development of programming and problem-solving skills by providing an introduction to object-oriented design and programming (OOP). The primary focus is on OOP principles and techniques, including encapsulation, composition, inheritance, and polymorphism. Other OOP topics such as exception handling, containers, and generic programming are also covered. This is the second course for students interested in pursuing further study in computer science.",
         "enrollment_requirements": "CMSC 201 or CMSC 201H with a grade of 'C' or better; MATH 150, MATH 151, MATH 151H, MATH 152, or MATH 152H with a grade of 'C' or better, or a score of 5 on the Math Placement Test; or concurrent enrollment in MATH 151.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": [1]
+        "prerequisites": [1],
+        "credits": 4
       }
     },
     {
@@ -31,11 +35,13 @@
       "fields": {
         "name": "CMSC 203 - Discrete Structures",
         "course_id": "CMSC 203",
+        "major":"Computer Science",
         "description": "This course introduces the fundamental tools, topics and concepts of discrete mathematics needed to study computer science. It emphasizes counting methods, proof techniques and problem-solving strategies. Topics include Boolean algebra; set theory; symbolic logic; predicate calculus; number theory; the methods of direct, indirect and inductive proofs; objective functions; equivalence relations; graphs; set partitions; combinatorics; modular arithmetic; summations; and recurrences.",
         "enrollment_requirements": "MATH 140 or MATH 151 with a grade of 'C' or better.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": []
+        "prerequisites": [],
+        "credits": 3
       }
     },
     {
@@ -44,11 +50,13 @@
       "fields": {
         "name": "CMSC 304 - Social and Ethical Issues in Information Technology",
         "course_id": "CMSC 304",
+        "major":"Computer Science",
         "description": "A survey course that reviews social issues and the ethical impact of information technology throughout the world. The course examines the policy issues that relate to the use of information technology, such as persona, privacy, rights of access, security, transborder information flow and confidentiality.",
         "enrollment_requirements": "ENGL 100 and (CMSC 202, CMSC 202H, or CMSC 210) with a grade of 'C' or better.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": [2]
+        "prerequisites": [2],
+        "credits": 3
       }
     },
     {
@@ -57,11 +65,13 @@
       "fields": {
         "name": "CMSC 313 - Computer Organization and Assembly Language Programming",
         "course_id": "CMSC 313",
+        "major":"Computer Science",
         "description": "This course introduces the student to the low-level abstraction of a computer system from a programmer’s point of view, with an emphasis on low-level programming. Topics include data representation, assembly language programming, C programming, the process of compiling and linking, low-level memory management, exceptional control flow, and basic processor architecture.",
         "enrollment_requirements": "CMSC 202 and CMSC 203 with a grade of 'C' or better.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": [2, 3]
+        "prerequisites": [2, 3],
+        "credits": 3
       }
     },
     {
@@ -70,11 +80,13 @@
       "fields": {
         "name": "CMSC 331 - Principles of Programming Language",
         "course_id": "CMSC 331",
+        "major":"Computer Science",
         "description": "This course examines the theory, design and implementation of programming languages and provides students with an introduction to programming languages that are likely to be new to them. Topics include specifications of syntax and semantics, declarations, binding, allocation, data structures, data types, control structures, control and data flow, concurrency, and the implementation and execution of programs. The major language paradigms will be described and explored, including imperative, object-oriented, functional, logic programming, concurrent and others. Programming projects will provide experience in several languages.",
         "enrollment_requirements": "CMSC 202 and CMSC 203 with a grade of 'C' or better.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": [2, 3]
+        "prerequisites": [2, 3],
+        "credits": 3
       }
     },
     {
@@ -83,11 +95,13 @@
       "fields": {
         "name": "CMSC 341 - Data Structures",
         "course_id": "CMSC 341",
+        "major": "Computer Science",
         "description": "An examination of a range of advanced data structures, with an emphasis on an object-oriented approach. Topics include asymptotic analysis; various binary search trees, including red-black and splay trees; skip lists as alternatives to binary search trees; data structures for multidimensional data such as K-D trees; heaps and priority queues, including binary heaps, binomial heaps, leftist heaps (and/or other mergeable heaps); B-trees for external storage; other commonly used data structures, such as hash tables and disjoint sets. Programming projects in this course will focus on implementation issues for data structures and on empirical analysis of their asymptotic performance.",
         "enrollment_requirements": "CMSC 202 and CMSC 203 with a grade of 'C' or better.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": [2, 3]
+        "prerequisites": [2, 3],
+        "credits": 3
       }
     },
     {
@@ -96,11 +110,13 @@
       "fields": {
         "name": "CMSC 411 - Computer Architecture",
         "course_id": "CMSC 411",
+        "major":"Computer Science",
         "description": "This course covers the design of complex computer systems making heavy use of the components and techniques discussed in CMSC 313, CMPE 212 and CMPE 310. All parts of the computer system - CPU, memory and input/output - are discussed in detail. Topics include information representation, floating-point arithmetic, instruction set design issues (RISC vs. CISC), microprogrammed control, hardwired control, pipelining, memory caches, bus control and timing, input/output mechanism and issues in the construction of parallel processors.",
         "enrollment_requirements": "CMSC 313 or (CMPE 212 and CMPE 310) with a grade of 'C' or better.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": [5]
+        "prerequisites": [5],
+        "credits": 3
       }
     },
     {
@@ -109,11 +125,13 @@
       "fields": {
         "name": "CMSC 421 - Principles of Operating Systems",
         "course_id": "CMSC 421",
+        "major":"Computer Science",
         "description": "An introduction to the fundamentals of operating systems. Topics include interprocess communication, process scheduling, deadlock, memory management, virtual memory, file systems and distributed systems. Formal principles are illustrated with examples and case studies of one or more contemporary operating systems.",
         "enrollment_requirements": "CMSC 341 with a grade of 'C' or better; CMSC 313 or (CMPE 212 and CMPE 310) with a grade of 'C' or better.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": [7, 5]
+        "prerequisites": [7, 5],
+        "credits": 3
       }
     },
     {
@@ -122,11 +140,20 @@
       "fields": {
         "name": "CMSC 426 - Principles of Computer Security",
         "course_id": "CMSC 426",
+        "major":"Computer Science",
         "description": "This course provides an introduction to computer security, with specific focus on computing aspects. Topics covered include threat, attack, and adversary models; social engineering; essentials of cryptography; traditional computing security models; malicious software; secure programming; operating system security; trusted OS design; public policy issues (legal, privacy, ethical); and network and database security.",
         "enrollment_requirements": "CMSC 341 with a grade of 'C' or better; CMSC 313 or (CMPE 212 and CMPE 310) with a grade of 'C' or better.",
         "meeting_times": {},
         "room": "",
-        "prerequisites": [7, 5]
+        "prerequisites": [7, 5],
+        "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 11,
+      "fields": {
+          
       }
     }
   ]  
