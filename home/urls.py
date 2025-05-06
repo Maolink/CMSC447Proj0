@@ -5,9 +5,11 @@ from .views import *
 
 router = DefaultRouter()
 router.register(r'courses', CollegeCourseViewSet)
+router.register(r'schedules', ScheduleViewSet)
 
 # app's URL Config
 urlpatterns = [
     path('home/', views.home_page),
-    path('', include(router.urls), name="academicPathwayFrontEnd")
+    path('', include(router.urls), name="academicPathwayFrontEnd"),
+    path('api/', include(router.urls)),
 ]

@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from rest_framework import generics
 from . models import *
 from rest_framework.response import Response
-from . serializer import *
+from . serializers import *
 # Create your views here.
 
 # views take requests and return responses. request handler. 
@@ -14,6 +14,9 @@ class CollegeCourseViewSet(viewsets.ModelViewSet):
     queryset = CollegeCourse.objects.all()
     serializer_class = CollegeCourseSerializer
 
+class ScheduleViewSet(viewsets.ModelViewSet):
+    queryset = Schedule.objects.all()
+    serializer_class = ScheduleSerializer
 
 
 # class ReactView(generics.ListCreateAPIView):
