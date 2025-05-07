@@ -153,7 +153,255 @@
       "model":"home.collegecourse",
       "pk": 11,
       "fields": {
-          
+          "name": "Computer Graphics",
+          "course_id": "CMSC 435",
+          "major":"Computer Science",
+          "description": "An introduction to the fundamentals of interactive computer graphics. Topics include graphics hardware, line drawing, area filling, clipping, two-dimensional and three-dimensional geometrical transforms, three-dimensional perspective viewing, hidden surface removal, illumination, color and shading models.",
+          "enrollment_requirements": "CMSC 313, CMSC 341, and MATH 221 with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7, 5],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 12,
+      "fields": {
+          "name": "Graphics for Games",
+          "course_id": "CMSC 438",
+          "major":"Computer Science",
+          "description": "This course is an introduction to some of the computer graphics methods commonly used in 3D computer games, for both real-time rendering and offline preprocessing. Students will learn several common algorithms in each topic area with sufficient depth for implementation.",
+          "enrollment_requirements": "CMSC 341, MATH 151 and MATH 221 with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 13,
+      "fields": {
+          "name": "Design and Analysis of Algorithms",
+          "course_id": "CMSC 441",
+          "major":"Computer Science",
+          "description": "This course studies fundamental algorithms, strategies for designing algorithms, and mathematical tools for analyzing algorithms. Fundamental algorithms studied in this course include algorithms for sorting and searching, hashing, and graph algorithms. Mathematical tools include asymptotic notations and methods for solving recurrences. Algorithm design strategies include the greedy method, divide-and-conquer, dynamic programming, and randomization.",
+          "enrollment_requirements": "CMSC 341, (MATH 142 or MATH 152), and (CMPE 320, STAT 355, or STAT 451) with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 14,
+      "fields": {
+          "name": "Software Engineering 1",
+          "course_id": "CMSC 447",
+          "major":"Computer Science",
+          "description": "This course introduces the basic concepts of software engineering, including software life cycle, requirements analysis and software design methods. Professional ethics in computer science and the social impact of computing are discussed as an integral part of the software development process. Additional topics may include tools for software development, software testing, software metrics and software maintenance.",
+          "enrollment_requirements": "CMSC 341 and one additional 400-level CMSC course with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 15,
+      "fields": {
+          "name": "Malware Analysis",
+          "course_id": "CMSC 449",
+          "major":"Computer Science",
+          "description": "Malicious software (malware) is a constant threat to the information and intellectual property of organizations. By analyzing malware using both static and dynamic methods, students will be introduced to those increasingly sophisticated attacks. This course will provide a foundation for understanding emerging trends in malware designs, including efforts to deter analysis. Discussions and hands-on exercises will cover object file formats, and the use of tools such as debuggers, virtual machines, and disassemblers. Finally, obfuscation and packing schemes will be discussed, along with various issues related to operating systems internals.",
+          "enrollment_requirements": "CMSC 313 and CMSC 341 with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7, 5],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 16,
+      "fields": {
+          "name": "Automata Theory and Formal Languages",
+          "course_id": "CMSC 451",
+          "major":"Computer Science",
+          "description": "This course introduces the basic concepts in the theory of formal languages. Topics include regular grammars and finite automata, context-free grammars and push-down automata, Turing machines and the halting problem, and an introductory treatment of computable and non-computable functions.",
+          "enrollment_requirements": "CMSC 202 and CMSC 203 with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [2, 3],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 17,
+      "fields": {
+          "name": "Database Management Systems",
+          "course_id": "CMSC 461",
+          "major":"Computer Science",
+          "description": "This course covers database management and the different data models used to structure the logical view of databases. The course also covers database design and implementation techniques, including file organization, query processing, concurrency control, recovery, integrity and security.",
+          "enrollment_requirements": "CMSC 341 or CMSC 341H with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 18,
+      "fields": {
+          "name": "Introduction to Data Science",
+          "course_id": "CMSC 462",
+          "major":"Computer Science",
+          "description": "Data science is a field that involves data manipulation, analysis, and presentation, all at scale. It's typical for an organization to have a few terabytes of data maintained for different purposes by different business units stored in different formats, and for someone to have an idea about how the data might bring significant additional value. Data scientists are the bridge between the idea and the data and help extract latent value, often uncovering novel insights and novel beneficial ways to use the data in the process.",
+          "enrollment_requirements": "CMSC 341 and (CMPE 320, STAT 355, or STAT 451) with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 19,
+      "fields": {
+          "name": "Introduction to Artificial Intelligence",
+          "course_id": "CMSC 471",
+          "major":"Computer Science",
+          "description": "This course provides a broad introduction to artificial intelligence, its sub-fields and their applications. Topics include problem-solving approaches, problem spaces and search, knowledge representation and reasoning, logic and deduction, planning, expert systems, handling uncertainty, learning and natural language understanding.",
+          "enrollment_requirements": "CMSC 341 or CMSC 341H with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 20,
+      "fields": {
+          "name": "Computer Vision",
+          "course_id": "CMSC 472",
+          "major":"Computer Science",
+          "description": "Computer vision has the broad goal of understanding visual signals (images and videos) for low/mid/high-level perceptual tasks. This course offers a comprehensive introduction to computer vision, covering first principles, analytical as well as learning-based algorithms, and frontier topics in contemporary computer vision research. This course covers the following topics: understanding the basics of cameras and image formation, image transformations and stereo vision, image filtering and feature extraction, basics of machine learning and neural networks for computer vision, image and video understanding including recognition, detection, and tracking, and a selection of advanced topics such as representation learning, multimodal learning, generative models, and reliability and ethics in computer vision. In addition to lectures by the instructor, this course also includes invited talks by external speakers to give students a glimpse into new findings, innovative ideas, and trends in computer vision. Recommended Preparation: Calculus, linear algebra, statistics (for scientists and engineers), and programming (Python and C++).",
+          "enrollment_requirements": "CMSC 341, MATH 221, MATH 151 and (STAT 355 or CMPE 320) with a 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 21,
+      "fields": {
+          "name": "Introduction to Machine Learning",
+          "course_id": "CMSC 478",
+          "major":"Computer Science",
+          "description": "This course covers fundamental concepts, methodologies, and algorithms related to machine learning, which is the study of computer programs that improve some task with experience. Topics covered include decision trees, perceptrons, logistic regression, linear discriminant analysis, linear and non-linear regression, basic functions, support vector machines, neural networks, genetic algorithms, reinforcement learning, naive Bayes and Bayesian networks, bias/variance theory, ensemble methods, clustering, evaluation methodologies, and experiment design.",
+          "enrollment_requirements": "CMSC 341, MATH 221, and (CMPE 320, STAT 355, or STAT 451) with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 22,
+      "fields": {
+          "name": "Computer Networks",
+          "course_id": "CMSC 481",
+          "major":"Computer Science",
+          "description": "This course introduces the fundamentals of data communication and computer networking, including circuit and packet switching; network architectures and protocols; local/metropolitan/wide-area networks, OSI and TCP/IP standards; network programming and applications; and network management.",
+          "enrollment_requirements": "CMSC 341 or CMSC 341H with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [7],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 23,
+      "fields": {
+          "name": "Parallel and Distributed Processing",
+          "course_id": "CMSC 483",
+          "major":"Computer Science",
+          "description": "This course provides a project and applications-oriented approach to parallel and distributed programming. Students will learn a specific parallel language and programming environment and will complete a large programming project. Topics include a selected parallel programming language, a survey of parallel and distributed architectures and associated programming styles, an introduction to parallel and distributed algorithms, and a study of trade-offs between computation and communication in parallel",
+          "enrollment_requirements": "CMSC 421 with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [9],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 24,
+      "fields": {
+          "name": "Introduction to Network Security",
+          "course_id": "CMSC 487",
+          "major":"Computer Science",
+          "description": "The objective of this course is to teach the fundamental concepts, architectures, and protocols related to network security. Topics covered include: Overview of network security; Basics of cryptography; Threat models; Authentication and Authorization Mechanisms and Standards; Public Key Infrastructure; Electronic Mail Security; Network Layer Security; Transport layer and web security; Packet filtering; Firewalls; Intrusion Detection, and Virtual Private Networks; Recent topics in Network Security.",
+          "enrollment_requirements": "CMSC 421 or CMSC 481 with a grade of 'C' or better.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [9, 22],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 25,
+      "fields": {
+          "name": "Principles of Digital Design",
+          "course_id": "CMPE 212",
+          "major":"Computer Engineering",
+          "description": "This course introduces students to the science of digital design. The topics covered include Boolean algebra; logic theorems; logic circuits and methods for their simplification, including Karnaugh maps and the Quine-McCluskey algorithm; combinational design; electrical characteristics of gates, timing, races and hazards; sequential circuits, their specification via state machines and minimization; principles of register transfer notation; exposure to hardware description language(s); and synthesis tools. This course includes a laboratory. Departmental permission required.",
+          "enrollment_requirements": "",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 26,
+      "fields": {
+          "name": "Introductory Circuit Theory",
+          "course_id": "CMPE 306",
+          "major":"Computer Engineering",
+          "description": "This course introduces the fundamental linear passive elements of resistance, capacitance, inductance and the physical basis for their current voltage characteristics. It covers the basic analysis of circuits with these linear passive elements including Kirchoff's laws, node and mesh analysis and a solution of the resulting circuit differential equations for transient and steady-state responses. The frequency domain description of circuit analysis is introduced. The operational amplifier and circuits using these components is covered. The basics of magnetic induction and transformers in linear circuits are discussed. The course includes a laboratory in which the student designs and makes measurements on simple test circuits using both real components and PSPICE simulation.",
+          "enrollment_requirements": "PHYS 122 with a grade of 'C' or better. Prerequisite or Corequisite: MATH 225.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [],
+          "credits": 3
+      }
+    },
+    {
+      "model":"home.collegecourse",
+      "pk": 26,
+      "fields": {
+          "name": "Systems Design and Programming",
+          "course_id": "CMPE 310",
+          "major":"Computer Engineering",
+          "description": "This course provides computer engineering students with system design software and hardware experience. This course covers hardware features that support advanced process and memory management in modern architectures such as the Pentium. The details of the entire chipset for 8086 are covered, including topics related to the register architecture, machine language, clock generator, bus controller and memory, I/O and interrupt interface. Other details of a complete computer system are discussed, including I/O bus protocols and support chips, memory chips, interrupt handler hardware and external support chips for disk storage, video and direct memory access. This course includes a laboratory that focuses on assembly language programming and board design software.",
+          "enrollment_requirements": "Computer Engineering Gateway. Prerequisite or Corequisite: CMSC 203.",
+          "meeting_times": {},
+          "room": "",
+          "prerequisites": [3],
+          "credits": 3
       }
     }
   ]  
