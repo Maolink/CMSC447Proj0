@@ -15,13 +15,20 @@ interface Course {
 type courseListerParams = {
     columns: string[]
     currentSchedule: number
+    major: string
 }
 
-export default function CourseLister({columns, currentSchedule} : courseListerParams) {
+export default function CourseLister({columns, currentSchedule, major} : courseListerParams) {
     const [courses, courseSetter] = useState<any[]>([]);
     const [loading, loadingSetter] = useState(true);
+    
+    var majorFilter = ""
 
+    if (major === "") {
+        majorFilter = "Computer Science"
+    } else (majorFilter = major)
 
+   
     useEffect(() => {
         api.get('courses/').then(response => {courseSetter(response.data)}).catch(err => console.error(err));
     })
@@ -29,6 +36,10 @@ export default function CourseLister({columns, currentSchedule} : courseListerPa
     const addToSchedule = (coursePrimaryKey: number): void => {
         api.post('schedule/${currentSchedule}/courses', {course: coursePrimaryKey}).then()
     }
+
+    const courseList = courses.filter(c => {
+        return c.major === major
+    });
 
     return (
         <table>
@@ -45,7 +56,7 @@ export default function CourseLister({columns, currentSchedule} : courseListerPa
             </tr>
             </thead>
             <tbody>
-                {courses.map((course, i) => (
+                {courseList.map((course, i) => (
                     <tr key={i}>
                     {columns.map(col => (
                     <td key={course} style= {{border: '1px solid #eee', padding: '8px'}}>

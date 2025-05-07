@@ -75,20 +75,20 @@ function App() {
             cursor: 'pointer'
           }}
         >
-          MainPage
+          Back to Main Page
         </button>
       </div>
       <div className="SemesterTabs" style={{padding: 20}}>
         <p>Choose a semester here:</p>
             {SEMESTERS.map((semester_value, i) => (
               <button key={i} onClick={() => setSchedules(i + 1)} style={{marginRight: 8,padding: '4px 8px', fontWeight: schedules === i + 1 ? 'bold' : 'normal'}}>{semester_value}
-            
             </button>
           ))}
       </div>
       <div className="tableContainer">
         <h1>courses:</h1>
         <CourseLister
+          major={selectedMajor}
           currentSchedule={schedules}
           columns={courseColumns}
         />
