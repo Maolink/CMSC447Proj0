@@ -1,0 +1,10 @@
+[
+    { "model": "home.schedule", "pk": 1, "fields": { "name": "Freshman Fall" } },
+    { "model": "home.schedule", "pk": 2, "fields": { "name": "Freshman Spring" } },
+    { "model": "home.schedule", "pk": 3, "fields": { "name": "Sophomore Fall" } },
+    { "model": "home.schedule", "pk": 4, "fields": { "name": "Sophomore Spring" } },
+    { "model": "home.schedule", "pk": 5, "fields": { "name": "Junior Fall" } },
+    { "model": "home.schedule", "pk": 6, "fields": { "name": "Junior Spring" } },
+    { "model": "home.schedule", "pk": 7, "fields": { "name": "Senior Fall" } },
+    { "model": "home.schedule", "pk": 8, "fields": { "name": "Senior Spring" } }
+]

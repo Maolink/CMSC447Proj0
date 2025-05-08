@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.decorators import action
 from rest_framework import generics
 from . models import *
 from rest_framework.response import Response
@@ -17,6 +18,23 @@ class CollegeCourseViewSet(viewsets.ModelViewSet):
 class ScheduleViewSet(viewsets.ModelViewSet):
     queryset = Schedule.objects.all()
     serializer_class = ScheduleSerializer
+
+    @action(detail=True, methods=['get', 'post'])
+    def courses(self, request, pk=None):
+        schedule = self.get_object()
+
+        if request.method == 'POST':
+            coursepkey = request.data.get('course') # expected value is {course: <pkey>}
+            try:
+                course = CollegeCourse.objects.get(pk=coursepkey)
+            except CollegeCourse.DoesNotExist:  
+                return Response(status=status.HTTP_404_NOT_FOUND)
+            schedule.courses.add(course)
+            return Response(status=status.HTTP_201_CREATED)
+
+        queryset = schedule.courses.all()
+        serializer = CollegeCourseSerializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 # class ReactView(generics.ListCreateAPIView):

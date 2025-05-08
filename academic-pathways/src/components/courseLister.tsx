@@ -33,8 +33,9 @@ export default function CourseLister({columns, currentSchedule, major} : courseL
         api.get('courses/').then(response => {courseSetter(response.data)}).catch(err => console.error(err));
     })
     // need to add list of schedules from the schedule buttons on the bottom of the page
+    
     const addToSchedule = (coursePrimaryKey: number): void => {
-        api.post('schedule/${currentSchedule}/courses', {course: coursePrimaryKey}).then()
+        api.post(`schedules/${currentSchedule}/courses/`, {course: coursePrimaryKey}).then()
     }
 
     const courseList = courses.filter(c => {
@@ -56,13 +57,16 @@ export default function CourseLister({columns, currentSchedule, major} : courseL
             </tr>
             </thead>
             <tbody>
-                {courseList.map((course, i) => (
-                    <tr key={i}>
+                {courseList.map(course => (
+                    <tr key={course.id}>
                     {columns.map(col => (
-                    <td key={course} style= {{border: '1px solid #eee', padding: '8px'}}>
+                    <td key={`${course.id}-${col}`} style= {{border: '1px solid #eee', padding: '8px'}}>
                         {JSON.stringify(course[col]).replace(/^{|}$|^"|"$/g, '')/* regex will get rid of curly braces and quotation marks at the start and end of the attributes for the database*/}
                     </td>
                 ))}
+                <td>
+                    <button onClick={() => addToSchedule(course.id)}> Add To Schedule</button>
+                </td>
                 </tr>
             ))}
             </tbody>
