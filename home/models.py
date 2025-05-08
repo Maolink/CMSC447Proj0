@@ -6,9 +6,9 @@ from django.db import models
 # Ethan Lackner
 class CollegeCourse(models.Model):
     name = models.CharField(max_length=255)
-    major = models.CharField(max_length=255)
+    major = models.CharField(max_length=255, default="")
     course_id = models.CharField(max_length=50, unique=True)
-    credits = models.CharField(max_length=1)
+    credits = models.CharField(max_length=1, default=3)
     description = models.TextField()
     enrollment_requirements = models.TextField()
     meeting_times = models.JSONField()  # Stores meeting times as a dictionary
