@@ -7,11 +7,11 @@ import '@schedule-x/theme-default/dist/calendar.css';
 import { createEventsServicePlugin } from '@schedule-x/events-service';
 import LandingPage from './LandingPage';
 import api from './api'
+import { createEventModalPlugin } from '@schedule-x/event-modal';
 
 const courseColumns: string[] = [
   "course_id",
   "name",
-  "description",
   "meeting_times",
   "room",
 ];
@@ -23,6 +23,7 @@ interface Course {
   meeting_times: Record<string, string>; 
   room: string;
   credits: string;
+  description: string;
 }
 
 const SEMESTERS = [
@@ -47,7 +48,7 @@ function App() {
   const [eventServicePlugin] = useState(() => createEventsServicePlugin());
 
     const calendar = useCalendarApp({
-    plugins: [eventServicePlugin],
+    plugins: [eventServicePlugin, createEventModalPlugin()],
     views: [createViewWeek(), createViewMonthGrid()],
     events: [],
     selectedDate: '2025-04-07',
@@ -78,7 +79,8 @@ function App() {
               title: course.course_id,
               start:course.meeting_times[startKey],
               end: endTime,
-              resource: { credits: Number(course.credits)}
+              resource: { credits: Number(course.credits)},
+              description: course.description
             })
             console.log("event was created probably")
           }
@@ -93,7 +95,7 @@ function App() {
   if (!calendar) return <div>Loading calendar...</div>;
 
 
-  var advisorRecs = '<p>Advisor recommendations will be here when a class is selected.</p>'
+  var advisorRecs = '<p>Advisor recommendations will be here when a class is selected. Pick you classes under this calendar</p>'
 
   if (!showPlanner) {
     return <LandingPage onSubmit={(major) => {
@@ -105,11 +107,13 @@ function App() {
   return (
       <>
       <div className="topBar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
-        <h1 style={{ margin: 0 }}>My Academic Pathway</h1>
+        <h1 style={{ margin: 0, color:"#ffb71c"}}>My Academic Pathway</h1>
+        <img src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2021/03/gold-retriever-on-black.jpg" style={{position:"absolute", width: "50px", height:"50px", left:"1310px"}}>
+        </img>
         <button
           onClick={() => setShowPlanner(false)}
           style={{
-            backgroundColor: '#ffcc00',
+            backgroundColor: '#ffb71c',
             border: 'none',
             padding: '10px 15px',
             fontWeight: 'bold',
@@ -120,8 +124,9 @@ function App() {
           Back to Main Page
         </button>
       </div>
+
       <div className="SemesterTabs" style={{padding: 20}}>
-        <p>Choose a semester here:</p>
+        <p>\n</p>
             {SEMESTERS.map((semester_value, i) => (
               <button key={i} onClick={() => {setCurrentSchedule(i + 1) 
               setRefresh(r => r + 1);}}
@@ -129,6 +134,19 @@ function App() {
             </button>
           ))}
       </div>
+      
+      <div className="calendarContainer">
+      {calendar ? (
+        <ScheduleXCalendar calendarApp={calendar} />
+      ) : (
+        <p>Loading calendar...</p>
+      )}
+      </div>
+
+      <div dangerouslySetInnerHTML={{__html: advisorRecs}} className='advisorRec'/>
+
+      
+      
       <div className="tableContainer">
         <h1>courses:</h1>
         <CourseLister
@@ -144,13 +162,7 @@ function App() {
         backgroundColor: '#f9f9f9',
       }}
     >
-      {calendar ? (
-        <ScheduleXCalendar calendarApp={calendar} />
-      ) : (
-        <p>Loading calendar...</p>
-      )}
     </div>
-    <div dangerouslySetInnerHTML={{__html: advisorRecs}} className='advisorRec'/>
     </>
   );
   

@@ -16,7 +16,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onSubmit }) => {
     <div style={{ fontFamily: 'Arial', backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
       <header style={{ backgroundColor: '#000', color: '#ffcc00', padding: '20px', textAlign: 'center' }}>
         <img
-          src="https://upload.wikimedia.org/wikipedia/en/6/64/University_of_Maryland%2C_Baltimore_County_seal.svg"
+          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstyleguide.umbc.edu%2Ffiles%2F2019%2F03%2FUMBC-vertical-logo-CMYK-on-black.png&f=1&nofb=1&ipt=cd05c51f219360b99d5d495a047511a43037bb6c553736b4cdf5ce1fcfc534b8"
           alt="UMBC Logo"
           style={{ width: '80px', marginBottom: '10px' }}
         />
