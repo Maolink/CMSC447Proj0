@@ -8,9 +8,6 @@ import { createEventsServicePlugin } from '@schedule-x/events-service';
 import LandingPage from './LandingPage';
 import api from './api'
 
-
-const eventServicePlugin = createEventsServicePlugin();
-
 const courseColumns: string[] = [
   "course_id",
   "name",
@@ -25,6 +22,7 @@ interface Course {
   name: string;
   meeting_times: Record<string, string>; 
   room: string;
+  credits: string;
 }
 
 const SEMESTERS = [
@@ -38,47 +36,59 @@ const SEMESTERS = [
   'Senior Spring',
 ] as const
 
+
 function App() {
-  const [schedules, setSchedules] = useState(1); // this will be used as saving the current semester being worked on.
-  const [currentSchedule, setCurrentSchedule] = useState<number | null>(null);
+  const [currentSchedule, setCurrentSchedule] = useState<number>(1);
   const [showPlanner, setShowPlanner] = useState(false) 
   const [selectedMajor, setSelectedMajor] = useState('')
-  const [courses, setCourses] = useState<Course[]>([])
+  // const [courses, setCourses] = useState<Course[]>([])
+  const [semesterCourses, setSemesterCourses] = useState<Course[]>([])
+  const [refresh, setRefresh] = useState(0)
+  const [eventServicePlugin] = useState(() => createEventsServicePlugin());
 
-  useEffect(() => {
-    api.get('schedules/${currentSchedule}/courses').then(res => setCourses(res.data)).catch(err => console.error(err))
-  }, [schedules])
-
-
-  const events = courses.flatMap(course => {
-    const mt = course.meeting_times
-
-    return Object.keys(mt).filter(key => key.endsWith("Start")).flatMap(startKey => { // gets start and ending keys, but picks out only starting times
-      
-      const day = startKey.slice(0, -5)
-      const endKey = `${day}End`
-      // create key for usage to get the ending time in the meeting time dictionary
-      const start = mt[startKey]
-      const end = mt[endKey]
-      
-      if (start != "") {
-        return {
-          id: `${course.id}-${day}`,
-          title: course.course_id,
-          start,
-          end
-        }
-      } else {
-        return undefined
-      }
-    })}).flatMap(evt => evt ? [evt] : [])
-
-  const calendar = useCalendarApp({
+    const calendar = useCalendarApp({
     plugins: [eventServicePlugin],
     views: [createViewWeek(), createViewMonthGrid()],
-    events: events,
+    events: [],
     selectedDate: '2025-04-07',
   });
+
+  useEffect(() => {
+    api.get(`schedules/${currentSchedule}/courses`).then(res => setSemesterCourses(res.data)).catch(err => console.error(err))
+    console.log('schedule = %d', currentSchedule)
+    console.log('semester courses = %s', JSON.stringify(semesterCourses))
+  }, [refresh])
+
+  // this is never getting the users schedule, and is just trying to add it to the calendar from the course 
+
+  useEffect(() => {
+    if (!eventServicePlugin.eventsFacade) return;
+    console.log("hello")
+    eventServicePlugin.getAll().forEach(event => {
+      eventServicePlugin.remove(event.id)
+    })
+    semesterCourses.forEach(course => {
+      Object.entries(course.meeting_times).filter(([key]) => 
+        key.endsWith('Start')).forEach(([startKey, start]) => {
+          if (start !== "") {
+            const day = startKey.replace(/Start$/, '')
+            const endTime = course.meeting_times[`${day}End`]
+            eventServicePlugin.add({
+              id: `${course.id}-${day}`,
+              title: course.course_id,
+              start:course.meeting_times[startKey],
+              end: endTime,
+              resource: { credits: Number(course.credits)}
+            })
+            console.log("event was created probably")
+          }
+        })
+    })
+  }, [semesterCourses, eventServicePlugin.eventsFacade])
+
+  const handleAddedCourse = () => {
+    setRefresh(k => k+1)
+  }
 
   if (!calendar) return <div>Loading calendar...</div>;
 
@@ -113,7 +123,9 @@ function App() {
       <div className="SemesterTabs" style={{padding: 20}}>
         <p>Choose a semester here:</p>
             {SEMESTERS.map((semester_value, i) => (
-              <button key={i} onClick={() => setSchedules(i + 1)} style={{marginRight: 8,padding: '4px 8px', fontWeight: schedules === i + 1 ? 'bold' : 'normal'}}>{semester_value}
+              <button key={i} onClick={() => {setCurrentSchedule(i + 1) 
+              setRefresh(r => r + 1);}}
+              style={{marginRight: 8,padding: '4px 8px', fontWeight: currentSchedule === i + 1 ? 'bold' : 'normal'}}>{semester_value}
             </button>
           ))}
       </div>
@@ -121,8 +133,9 @@ function App() {
         <h1>courses:</h1>
         <CourseLister
           major={selectedMajor}
-          currentSchedule={schedules}
+          scheduleUsed={currentSchedule}
           columns={courseColumns}
+          onAdded={handleAddedCourse}
         />
       </div>
       <div

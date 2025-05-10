@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import api from '../api'
 
 interface Course {
+    id: number;
     name: string;
     course_id: string;
     description: string;
@@ -14,11 +15,12 @@ interface Course {
 
 type courseListerParams = {
     columns: string[]
-    currentSchedule: number
+    scheduleUsed: number
     major: string
+    onAdded: () => void
 }
 
-export default function CourseLister({columns, currentSchedule, major} : courseListerParams) {
+export default function CourseLister({columns, scheduleUsed, major, onAdded} : courseListerParams) {
     const [courses, courseSetter] = useState<any[]>([]);
     const [loading, loadingSetter] = useState(true);
     
@@ -31,11 +33,14 @@ export default function CourseLister({columns, currentSchedule, major} : courseL
    
     useEffect(() => {
         api.get('courses/').then(response => {courseSetter(response.data)}).catch(err => console.error(err));
-    })
+    }, [])
     // need to add list of schedules from the schedule buttons on the bottom of the page
     
     const addToSchedule = (coursePrimaryKey: number): void => {
-        api.post(`schedules/${currentSchedule}/courses/`, {course: coursePrimaryKey}).then()
+        api.post(`schedules/${scheduleUsed}/courses/`, {course: coursePrimaryKey}).then(() => onAdded()) // onAdded triggers reloading of schedule
+    }
+    const removeFromSchedule = (coursePrimaryKey: number): void => {
+        api.delete(`schedules/${scheduleUsed}/courses/`, {data: {course: coursePrimaryKey}}).then(() => onAdded() ) // onAdded triggers reloading of schedule
     }
 
     const courseList = courses.filter(c => {
@@ -66,6 +71,9 @@ export default function CourseLister({columns, currentSchedule, major} : courseL
                 ))}
                 <td>
                     <button onClick={() => addToSchedule(course.id)}> Add To Schedule</button>
+                </td>
+                <td>
+                    <button onClick={() => removeFromSchedule(course.id)}>Remove From Schedule</button>
                 </td>
                 </tr>
             ))}

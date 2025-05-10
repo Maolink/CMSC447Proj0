@@ -1,5 +1,4 @@
 [
-  <<<<<<< HEAD
     {
       "model": "home.collegecourse",
       "pk": 1,
@@ -22,7 +21,8 @@
         "room": "",
         "prerequisites": [],
         "credits": 4
-  =======
+      }
+    },
       {
         "model": "home.collegecourse",
         "pk": 1,
@@ -670,9 +670,7 @@
             "prerequisites": [3],
             "credits": 3
         }
-  >>>>>>> db334da3d136765c3ce3a0e2ab4f984f91a03542
-      }
-    },
+      },
     {
       "model": "home.collegecourse",
       "pk": 2,
