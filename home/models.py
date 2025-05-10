@@ -9,6 +9,8 @@ class CollegeCourse(models.Model):
     major = models.CharField(max_length=255, default="")
     course_id = models.CharField(max_length=50, unique=True)
     credits = models.CharField(max_length=1, default=3)
+    semester = models.CharField(max_length=6, default="")
+    advisorRecs = models.TextField()
     description = models.TextField()
     enrollment_requirements = models.TextField()
     meeting_times = models.JSONField()  # Stores meeting times as a dictionary
