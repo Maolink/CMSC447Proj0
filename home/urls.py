@@ -12,4 +12,5 @@ urlpatterns = [
     path('home/', views.home_page),
     path('', include(router.urls), name="academicPathwayFrontEnd"),
     path('api/', include(router.urls)),
+    path('api/courses/create/', create_college_course, name='createCourse'),
 ]
