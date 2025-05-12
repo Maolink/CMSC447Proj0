@@ -112,16 +112,87 @@
   color: rgb(214, 189, 22);
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  justify-content: space-between;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
   z-index: 1000;
 }
-/*
-body {
-  background-color: #282c34;
-  margin: 0;
-  padding: 0;
+
+.SemesterTabs {
+  padding-top: 55px;
+  padding-bottom: 15px;
+  align-items: left;
+  margin-left: 0px;
 }
-*/
+
+.semesterButtons {
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-right: 8px;
+  transition: background 0.2s;
+}
+
+.semesterButtons:hover {
+  background-color: #ffd633;
+}
+
+.semesterButtons:active {
+  background-color: #e6b800;
+}
+
+
+
+.backToMainPage {
+  position:absolute;
+  margin-top: 2.5px;
+  padding: 10px;
+  left: 1380px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.backToCalendar {
+  position:absolute;
+  margin-top: 2.5px;
+  padding: 10px;
+  background-color: #ffcc00;
+  border: none;
+  left: 1175px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.warningText {
+  color: #842029;
+  background-color: #f8d7da;
+  border: 1px solid #f5c2c7;
+  border-radius: 4px;
+  padding: 0.75em 1em;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.creditLoadTotal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: #e7f5ff;
+  color: #055160;
+  border: 1px solid #81c2d7;
+  border-radius: 6px;
+  padding: 0.5em 1em;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

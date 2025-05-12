@@ -54,6 +54,10 @@ function App() {
     selectedDate: '2025-04-07',
   });
 
+  const backToCalendar = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+
   useEffect(() => {
     api.get(`schedules/${currentSchedule}/courses`).then(res => setSemesterCourses(res.data)).catch(err => console.error(err))
     console.log('schedule = %d', currentSchedule)
@@ -92,10 +96,14 @@ function App() {
     setRefresh(k => k+1)
   }
 
+  const maxCredits = 18
+
+  const fullTime = 12
+
+  const totalCredits = semesterCourses.reduce((sum, course) => sum + Number(course.credits || 0), 0)
+
   if (!calendar) return <div>Loading calendar...</div>;
 
-
-  var advisorRecs = '<p>Advisor recommendations will be here when a class is selected. Pick you classes under this calendar</p>'
 
   if (!showPlanner) {
     return <LandingPage onSubmit={(major) => {
@@ -106,31 +114,25 @@ function App() {
 
   return (
       <>
-      <div className="topBar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
+      
+      <div className="topBar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0px 20px' }}>
         <h1 style={{ margin: 0, color:"#ffb71c"}}>My Academic Pathway</h1>
-        <img src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2021/03/gold-retriever-on-black.jpg" style={{position:"absolute", width: "50px", height:"50px", left:"1310px"}}>
+        <img src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2021/03/gold-retriever-on-black.jpg" style={{position:"absolute", width: "50px", height:"50px", left:"1120px"}}>
         </img>
-        <button
-          onClick={() => setShowPlanner(false)}
-          style={{
-            backgroundColor: '#ffb71c',
-            border: 'none',
-            padding: '10px 15px',
-            fontWeight: 'bold',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
-        >
+        <button onClick={backToCalendar} className="backToCalendar">
+          Go Back to your Calendar
+        </button>
+        <button onClick={() => setShowPlanner(false)} className="backToMainPage">
           Back to Main Page
         </button>
       </div>
 
-      <div className="SemesterTabs" style={{padding: 20}}>
-        <p>\n</p>
+      <div className="SemesterTabs">
+        <p></p>
             {SEMESTERS.map((semester_value, i) => (
-              <button key={i} onClick={() => {setCurrentSchedule(i + 1) 
+              <button className="semesterButtons" key={i} onClick={() => {setCurrentSchedule(i + 1) 
               setRefresh(r => r + 1);}}
-              style={{marginRight: 8,padding: '4px 8px', fontWeight: currentSchedule === i + 1 ? 'bold' : 'normal'}}>{semester_value}
+              style={{fontWeight: currentSchedule === i + 1 ? 'bold' : 'normal'}}>{semester_value}
             </button>
           ))}
       </div>
@@ -143,8 +145,15 @@ function App() {
       )}
       </div>
 
-      <div dangerouslySetInnerHTML={{__html: advisorRecs}} className='advisorRec'/>
-
+      <div className='advisorRec'> 
+        <aside>
+          <p>
+            <div className="creditLoadTotal" >Credit Load Total: {totalCredits}</div>
+            {totalCredits < fullTime ? <p className='warningText'> You're below the full time credit requirement! </p> : <p> You have enough credits to be a full time student. </p>}
+            {totalCredits > maxCredits ? <p className='warningText'> You might be taking too many classes. Make sure you know what you're setting yourself up for! </p> : <></>}
+          </p>
+        </aside>
+      </div>
       
       
       <div className="tableContainer">

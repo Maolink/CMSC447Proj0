@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import api from '../api'
+import './courseLister.css';
+import api from '../api';
 
 interface Course {
     id: number;
@@ -18,6 +19,26 @@ type courseListerParams = {
     scheduleUsed: number
     major: string
     onAdded: () => void
+}
+
+type Mt = Record<string,string>;
+
+function formatMeetingTimes(mt: Mt): string {
+  const days = ['Monday','Tuesday','Wednesday','Thursday'];
+
+  return days.map(day => {
+      const start = mt[`${day}Start`];
+      if (!start) return null;
+      const end = mt[`${day}End`] || '';
+      
+      const startTime = start.split(' ')[1]; 
+      const endTime   = end.split  (' ')[1];
+      
+      const dayAbbrev = day.slice(0,3);
+      return `${dayAbbrev} ${startTime}–${endTime}`;
+    })
+    .filter(Boolean)                         // drop any nulls
+    .join(', ');
 }
 
 export default function CourseLister({columns, scheduleUsed, major, onAdded} : courseListerParams) {
@@ -48,32 +69,34 @@ export default function CourseLister({columns, scheduleUsed, major, onAdded} : c
     });
 
     return (
-        <table>
+        <table className="courseList">
             <thead>
             <tr>
                 {columns.map(col => (
                     <th
                         key = {col}
-                        style ={{ border: '1px solid #ccc', padding: '8px', textTransform: 'capitalize'}}
                     >
                         {col.replace(/_/g, ' ')}    
                     </th>
+                    
                 ))}
+                <th>Add Class</th>
+                <th>Remove Class</th>
             </tr>
             </thead>
             <tbody>
                 {courseList.map(course => (
                     <tr key={course.id}>
                     {columns.map(col => (
-                    <td key={`${course.id}-${col}`} style= {{border: '1px solid #eee', padding: '8px'}}>
-                        {JSON.stringify(course[col]).replace(/^{|}$|^"|"$/g, '')/* regex will get rid of curly braces and quotation marks at the start and end of the attributes for the database*/}
+                    <td key={`${course.id}-${col}`}>
+                        {col === 'meeting_times' ? formatMeetingTimes(course.meeting_times) : JSON.stringify(course[col]).replace(/^{|}$|^"|"$/g, '') /* regex will get rid of curly braces and quotation marks at the start and end of the attributes for the database, and format meeting times to look better*/}
                     </td>
                 ))}
                 <td>
-                    <button onClick={() => addToSchedule(course.id)}> Add To Schedule</button>
+                    <button onClick={() => addToSchedule(course.id)} className="addButton"> Add To Schedule</button>
                 </td>
                 <td>
-                    <button onClick={() => removeFromSchedule(course.id)}>Remove From Schedule</button>
+                    <button onClick={() => removeFromSchedule(course.id)} className="removeButton">Remove From Schedule</button>
                 </td>
                 </tr>
             ))}

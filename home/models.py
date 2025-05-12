@@ -9,12 +9,12 @@ class CollegeCourse(models.Model):
     major = models.CharField(max_length=255, default="")
     course_id = models.CharField(max_length=50, unique=True)
     credits = models.CharField(max_length=1, default=3)
-    semester = models.CharField(max_length=6, default="")
-    advisorRecs = models.TextField()
-    description = models.TextField()
-    enrollment_requirements = models.TextField()
+    semester = models.CharField(max_length=11, default="")
+    advisorRecs = models.TextField(default="")
+    description = models.TextField(default="")
+    enrollment_requirements = models.TextField(default="")
     meeting_times = models.JSONField()  # Stores meeting times as a dictionary
-    room = models.CharField(max_length=100)
+    room = models.CharField(max_length=100, default="")
     prerequisites = models.ManyToManyField('self', symmetrical=False, blank=True)
 
     def __str__(self):

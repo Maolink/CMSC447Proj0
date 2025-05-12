@@ -14,13 +14,13 @@ class CollegeCourseSerializer(serializers.ModelSerializer):
         # fields = ['name', 'course_id', 'major', 'description', 'credits', 'enrollment_requirements', 'meeting_times', 'room', 'prerequisites']
         #incomplete
     
-    def getDesc(self, obj):
+    def get_description(self, obj):
         return obj.description if obj.description else "No description available at this time."
     
-    def getRoom(self, obj):
+    def get_room(self, obj):
         return obj.room if obj.room else "There is no room assigned at this time."
     
-    def getRecs(self, obj):
+    def get_recs(self, obj):
         return obj.advisorRecs if obj.advisorRecs else "Your advisor has not submitted any reccommendations about this class at this time."
     
 
