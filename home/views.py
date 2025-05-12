@@ -10,6 +10,14 @@ from . serializers import *
 # views take requests and return responses. request handler. 
 # A view is usually something the user sees, but the template is actually that.
 
+@api_view(['POST'])
+def create_college_course(request):
+    serializer = CollegeCourseSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class CollegeCourseViewSet(viewsets.ModelViewSet):
     queryset = CollegeCourse.objects.all()
