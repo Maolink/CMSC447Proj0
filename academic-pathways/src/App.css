@@ -1,6 +1,5 @@
 .App {
   align-items: flex-start;
-  
   background-color: #05070c;
   min-height: 100vh;
   padding: 0;
@@ -47,7 +46,6 @@
 .tableContainer thead th {
   border: 1px solid #7b7b7b;
   white-space: nowrap;
-  font-family:Georgia, 'Times New Roman', Times, serif;
   background-color: #fff;
   z-index: 1;
   border-radius: 5px;
@@ -93,7 +91,6 @@
   margin-left: 1100px;
   margin-right: 10px;
   overflow-wrap: break-word;
-  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 @keyframes App-logo-spin {
@@ -117,13 +114,11 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  font-family:Georgia, 'Times New Roman', Times, serif
 
 }
 
 .courseTableHeaderText {
   padding-left: 15px;
-  font-family:Georgia, 'Times New Roman', Times, serif
 }
 
 .SemesterTabs {
@@ -134,7 +129,6 @@
 }
 
 .semesterButtons {
-  font-family:Georgia, 'Times New Roman', Times, serif;
   background-color: #ffcc00;
   color: #000;
   border: none;
