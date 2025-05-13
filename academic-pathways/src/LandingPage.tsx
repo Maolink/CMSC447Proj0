@@ -34,6 +34,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onSubmit }) => {
           <option value="">-- Select Major --</option>
           <option value="Computer Science">Computer Science</option>
           <option value="Computer Engineering">Computer Engineering</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Physics">Physics</option>
+          <option value="Mathematics">Mathematics</option>
         </select>
 
         <br />

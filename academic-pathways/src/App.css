@@ -46,7 +46,8 @@
 
 .tableContainer thead th {
   border: 1px solid #7b7b7b;
-  /* border-collapse: collapse; */
+  white-space: nowrap;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   background-color: #fff;
   z-index: 1;
   border-radius: 5px;
@@ -84,16 +85,15 @@
 }
 
 .advisorRec {
-  padding: 15px 15px 15px 15px;
+  padding: 10px;
   text-align: left;
-  float: right;
-  margin-top: -540px;
-  margin-bottom: 200px;
+  float: right; 
+  margin-top: -650px;
+  margin-bottom: 0px;
   margin-left: 1100px;
   margin-right: 10px;
   overflow-wrap: break-word;
-  border:1px solid #7b7b7b;
-  border-radius: 5px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 @keyframes App-logo-spin {
@@ -117,6 +117,13 @@
   position: fixed;
   top: 0;
   z-index: 1000;
+  font-family:Georgia, 'Times New Roman', Times, serif
+
+}
+
+.courseTableHeaderText {
+  padding-left: 15px;
+  font-family:Georgia, 'Times New Roman', Times, serif
 }
 
 .SemesterTabs {
@@ -127,6 +134,7 @@
 }
 
 .semesterButtons {
+  font-family:Georgia, 'Times New Roman', Times, serif;
   background-color: #ffcc00;
   color: #000;
   border: none;
@@ -145,8 +153,6 @@
 .semesterButtons:active {
   background-color: #e6b800;
 }
-
-
 
 .backToMainPage {
   position:absolute;

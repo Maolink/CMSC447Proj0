@@ -24,6 +24,8 @@ interface Course {
   room: string;
   credits: string;
   description: string;
+  semester: string;
+  advisorRecs: string;
 }
 
 const SEMESTERS = [
@@ -42,8 +44,8 @@ function App() {
   const [currentSchedule, setCurrentSchedule] = useState<number>(1);
   const [showPlanner, setShowPlanner] = useState(false) 
   const [selectedMajor, setSelectedMajor] = useState('')
-  // const [courses, setCourses] = useState<Course[]>([])
   const [semesterCourses, setSemesterCourses] = useState<Course[]>([])
+
   const [refresh, setRefresh] = useState(0)
   const [eventServicePlugin] = useState(() => createEventsServicePlugin());
 
@@ -51,7 +53,7 @@ function App() {
     plugins: [eventServicePlugin, createEventModalPlugin()],
     views: [createViewWeek(), createViewMonthGrid()],
     events: [],
-    selectedDate: '2025-04-07',
+    selectedDate: '2025-05-12',
   });
 
   const backToCalendar = () => {
@@ -60,11 +62,8 @@ function App() {
 
   useEffect(() => {
     api.get(`schedules/${currentSchedule}/courses`).then(res => setSemesterCourses(res.data)).catch(err => console.error(err))
-    console.log('schedule = %d', currentSchedule)
-    console.log('semester courses = %s', JSON.stringify(semesterCourses))
   }, [refresh])
 
-  // this is never getting the users schedule, and is just trying to add it to the calendar from the course 
 
   useEffect(() => {
     if (!eventServicePlugin.eventsFacade) return;
@@ -152,12 +151,22 @@ function App() {
             {totalCredits < fullTime ? <p className='warningText'> You're below the full time credit requirement! </p> : <p> You have enough credits to be a full time student. </p>}
             {totalCredits > maxCredits ? <p className='warningText'> You might be taking too many classes. Make sure you know what you're setting yourself up for! </p> : <></>}
           </p>
+          <p> </p>
+          {semesterCourses.map(course => (
+          <div key={course.id} className="course-item">
+            <h3>{course.course_id}: {course.name}</h3>
+            <p><strong>Semesters Offered:</strong> {course.semester === 'FallSpring' ? 'Offered both semesters' : course.semester}</p>
+            {course.advisorRecs && (
+              <p><strong>Advisor Recommendations:</strong> {course.advisorRecs}</p>
+            )}
+          </div>
+        ))}
         </aside>
       </div>
       
       
       <div className="tableContainer">
-        <h1>courses:</h1>
+        <h1 className="courseTableHeaderText">Pick a Course:</h1>
         <CourseLister
           major={selectedMajor}
           scheduleUsed={currentSchedule}

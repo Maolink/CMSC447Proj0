@@ -26,6 +26,12 @@
 
 .courseList td {
     padding: 8px;
+    
+    text-wrap: nowrap;
+}
+
+.buttonText {
+    text-align: center;
 }
 
 .addButton,
@@ -36,6 +42,7 @@
   cursor: pointer;
   padding: 5px 10px;
   transition: background 0.2s;
+  text-wrap: nowrap;
 }
 
 .addButton {
