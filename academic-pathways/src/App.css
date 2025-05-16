@@ -35,11 +35,9 @@
   position:relative;
   border-collapse: collapse; 
   float: left;
-  /* display: inline; */
   width: 100%;
   overflow-y: scroll;
   overflow-x: scroll;
-  /* box-sizing: border-box; */
   background-color: #f9f9f9;
 }
 
